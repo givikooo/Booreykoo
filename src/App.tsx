@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Dashboard from './Dashboard';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  BrowserRouter,
+  Routes
+} from "react-router-dom";
 
 function App() {
+
+  console.log("https://api.perse.pro/api/menu")
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Dashboard />
+          }
+        />
+        <Route
+          path="/about"
+          element={
+            <Dashboard />
+          }
+        />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
-export default App;
+export default App
