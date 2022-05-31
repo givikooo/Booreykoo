@@ -1,5 +1,6 @@
 import React from "react";
-import Dashboard from './Dashboard';
+import Dashboard from './Components/BurgerMenu';
+import Home from './Pages/Home';
 import {
   BrowserRouter as Router,
   Route,
@@ -18,6 +19,12 @@ function App() {
           path="/"
           element={
             <Dashboard />
+          }
+        />
+        <Route
+          path="/about"
+          element={
+            <Home />
           }
         />
         <Route
