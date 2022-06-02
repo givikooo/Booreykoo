@@ -1,37 +1,38 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react'
+import { Link, NavLink } from 'react-router-dom'
 import styled from 'styled-components';
 import Home from '../Pages/Home';
 
-const BurgerMenu = () => {
+const BurgerMenu: React.FC = () => {
+
     return (
         <Nav>
 
             <Ul>
                 <li>
-                    <Link style={{ textDecoration: 'unset', color: '#161616' }} to="/">
+                    <NavLink style={{ textDecoration: 'unset', color: '#161616' }} to="/">
                         Home
-                    </Link>
+                    </NavLink>
                 </li>
                 <li>
-                    <Link style={{ textDecoration: 'unset', color: '#161616' }} to="/about">
+                    <NavLink style={{ textDecoration: 'unset', color: '#161616' }} to="/about">
                         About
-                    </Link>
+                    </NavLink>
                 </li>
                 <li>
-                    <Link style={{ textDecoration: 'unset', color: '#161616' }} to="/servises">
+                    <NavLink style={{ textDecoration: 'unset', color: '#161616' }} to="/services">
                         Servises
-                    </Link>
+                    </NavLink>
                 </li>
                 <li>
-                    <Link style={{ textDecoration: 'unset', color: '#161616' }} to="/portfolio">
+                    <NavLink style={{ textDecoration: 'unset', color: '#161616' }} to="/portfolio">
                         Portfolio
-                    </Link>
+                    </NavLink>
                 </li>
                 <li>
-                    <Link style={{ textDecoration: 'unset', color: '#161616' }} to="/contact">
+                    <NavLink style={{ textDecoration: 'unset', color: '#161616' }} to="/contact">
                         Contact
-                    </Link>
+                    </NavLink>
                 </li>
             </Ul>
 
@@ -40,7 +41,7 @@ const BurgerMenu = () => {
 }
 
 const Nav = styled.nav`
-    display: none;
+  
 `
 
 const Ul = styled.ul`

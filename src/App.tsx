@@ -8,6 +8,9 @@ import {
   BrowserRouter,
   Routes
 } from "react-router-dom";
+import About from "./Pages/About";
+import Services from './Pages/Services';
+import Contact from './Pages/Contact';
 
 function App() {
 
@@ -18,19 +21,25 @@ function App() {
         <Route
           path="/"
           element={
-            <Dashboard />
-          }
-        />
-        <Route
-          path="/about"
-          element={
             <Home />
           }
         />
         <Route
           path="/about"
           element={
-            <Dashboard />
+            <About />
+          }
+        />
+        <Route
+          path="/services"
+          element={
+            <Services />
+          }
+        />
+         <Route
+          path="/contact"
+          element={
+            <Contact />
           }
         />
       </Routes>

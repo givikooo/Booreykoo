@@ -3,33 +3,44 @@ import styled from 'styled-components'
 
 
 
-const Burger = () => {
-    const [open, setOpen] = useState (false)
+const Burger: React.FC<{
+    divType?: string
+}> = ({
+    divType
+}) => {
 
-    return (
-        <StyledBurger open={open} onClick = { () => setOpen(!open)} >
-            <div/>
-            <div/>
-            <div/>
-        </StyledBurger>
-    )
-}
+
+        return (
+            <StyledBurger >
+                <Div $divColor={divType} />
+                <Div $divColor={divType} />
+            </StyledBurger>
+        )
+    }
 
 const StyledBurger = styled.div`
-    width: 2rem;
-    height: 2rem;
+    width: 32px;
+    height: 32px;
     position: fixed;
     top: 15px;
     right: 20px;
     display: flex;
     justify-content: space-around;
     flex-flow: column nowrap;
-    div{
-        width: 2rem;
-        height: 0.25rem;
-        background-color: ${({open}) => open ? '#f1f1f1' : '#161616'};
+    cursor: pointer;
+    /* div{
+        width: 32px;
+        height: 4px;
+        background-color: #ffffff;
         border-radius: 10px;
-    }
+    } */
 `
+const Div = styled.div<{ $divColor?: string }>`
+    background-color: ${({ $divColor }) => ($divColor === "black" ? '#161616' : $divColor === "white" ? "#ffffff" : "unset")};
+    width: 32px;
+    height: 4px;
+    border-radius: 10px;
+`
+
 
 export default Burger

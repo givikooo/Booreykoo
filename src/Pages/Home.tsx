@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Burger from "../Components/Burger";
 import BurgerMenu from "../Components/BurgerMenu";
+import BtnForm from "../Components/Button";
 
 
 
-const Home  = () => {
+const Home = () => {
+    const [showHide, setshowHide] = useState<boolean>(false);
+
+
+
 
     return (
         <>
@@ -19,11 +24,24 @@ const Home  = () => {
                         putting everything aside to be yourself!
                     </TextTag>
                 </MainWrapp>
-                <ContactBtn>
-                    Contact Us
-                </ContactBtn>
-                <BurgerMenu/>
-                <Burger/>
+                <div style={{marginTop: '230px'}} >
+                    <BtnForm
+                        title='Contact us'
+                        btnType="contact"
+                        width={true}
+                        height={true}
+                        borderColor={true}
+                        onClick={() => alert('Button 1 is clicked !')}
+                    />
+                </div>
+                {showHide === true ? (
+                    <BurgerMenu />
+                ) : null}
+                <Button onClick={() => setshowHide(showHide === true ? false : true)}>
+                    <Burger 
+                        divType='white'
+                    />
+                </Button>
             </Body>
         </>
     )
@@ -33,7 +51,6 @@ const Home  = () => {
 const Body = styled.body`
     background-color: #161616;
     height: 100vh;
-    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -54,21 +71,11 @@ const TextTag = styled.p`
     font-family:'Roboto';
     margin-top: 55px;
 `
-const ContactBtn = styled.button`
-    width: 190px;
-    height: 55px;
-    border: 3px #CDC152 solid;
-    box-sizing: border-box;
-    background-color: transparent;
-    color: #ffffff;
-    margin-top: 230px;
-    &:hover{
-        background-color: rgba(205,193,82,);
-    }
-    cursor: pointer;
-   
-`
 
+const Button = styled.button`
+    background-color: transparent;
+    border: 0px;
+`
 
 
 
