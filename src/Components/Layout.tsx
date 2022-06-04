@@ -21,7 +21,7 @@ const Layout: React.FC<{ children?: React.ReactNode; link?: string }> = ({ child
                 <ArrowLink to={link}><IconStyle /></ArrowLink>
             ) : null}
             <Button onClick={() => setshowHide(showHide === true ? false : true)}>
-                <Burger divType={Pathname == "/"|| "/portfolio" ? "white" : "black"} />
+                <Burger divType={Pathname == "/"  ? "white" : "black"} />
             </Button>
             <main>
               {children}
