@@ -76,14 +76,6 @@ const Services = () => {
                     />
                 </BtnDiv>
             </Body>
-            {showHide === true ? (
-                <BurgerMenu />
-            ) : null}
-            <Button onClick={() => setshowHide(showHide === true ? false : true)}>
-                <Burger
-                    divType='black'
-                />
-            </Button>
         </>
     )
 }

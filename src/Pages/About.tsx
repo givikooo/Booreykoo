@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components'
 import Burger from '../Components/Burger';
 import BurgerMenu from '../Components/BurgerMenu';
@@ -6,6 +7,7 @@ import BtnForm from '../Components/Button'
 
 const About = () => {
     const [showHide, setshowHide] = useState<boolean>(false);
+    const navigate = useNavigate()
     return (
         <>
             <Container>
@@ -33,14 +35,6 @@ const About = () => {
                     borderColor={true}
                     onClick={() => alert('Button 1 is clicked !')}
                 />
-                {showHide === true ? (
-                    <BurgerMenu />
-                ) : null}
-                <Button onClick={() => setshowHide(showHide === true ? false : true)}>
-                    <Burger
-                        divType='black'
-                    />
-                </Button>
             </Container>
 
         </>

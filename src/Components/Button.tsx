@@ -24,7 +24,7 @@ const BtnForm: React.FC<{
                 <Button
                     type="submit"
                     value={value}
-                    onChange={(event) => onClick()}
+                    onClick={(event) => onClick()}
                     style={{
                         width: width === true ? 180 : 195,
                         height: height === true ? 45 : 55,

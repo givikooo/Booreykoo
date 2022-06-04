@@ -18,81 +18,74 @@ const Contact = () => {
     const [showHide, setshowHide] = useState<boolean>(false);
 
     return (
+        <>
+            <Body>
+                <FormWrapper action="">
+                    <Div>
+                        <Input
+                            type='text'
+                            placeholder='Name'
+                            value={name}
+                            onChange={(value) => setName(value)}
+                        />
+                    </Div>
+                    <Div>
+                        <Input
+                            type='text'
+                            placeholder='Company'
+                            value={company}
+                            onChange={(value) => setCompany(value)}
+                        />
+                    </Div>
+                    <Div>
+                        <Input
+                            type='text'
+                            placeholder='Mobile'
+                            value={mobile}
+                            onChange={(value) => setMobile(value)}
+                        />
+                    </Div>
+                    <Div>
+                        <Input
+                            type='text'
+                            placeholder='Email'
+                            value={mail}
+                            onChange={(value) => setMail(value)}
+                        />
+                    </Div>
+                    <Div>
+                        <TextArea
+                            value={question}
+                            onChange={(value) => setQuestion(value)}
+                            placeholder='question'
+                            rows={5}
+                        />
+                    </Div>
+                    <Div>
+                        <BtnForm
+                            title='Send'
+                            btnType="send"
+                            width={true}
+                            height={true}
+                            borderColor={false}
+                            onClick={() => alert('Button 1 is clicked !')}
+                        />
+                    </Div>
+                </FormWrapper>
+                <RightSide>
+                    <Title>Just be <br /> Yourself!</Title>
+                    <div>
+                        <ContactText>
+                            Contact us:
+                            <span> <TelAtag href="tel:+1 (533) 6454 45454">+1 (533) 6454 45454</TelAtag></span>
+                            12/53 Towers Ave., 19726, California, USA
+                            <br /> <span> <Mailatag href="mailto:info@booreykoo.com">info@booreykoo.com</Mailatag></span>
+                        </ContactText>
+                    </div>
+                </RightSide>
+            </Body>
 
-        <Body>
-            <FormWrapper action="">
-                <Div>
-                    <Input
-                        type='text'
-                        placeholder='Name'
-                        value={name}
-                        onChange={(value) => setName(value)}
-                    />
-                </Div>
-                <Div>
-                    <Input
-                        type='text'
-                        placeholder='Company'
-                        value={company}
-                        onChange={(value) => setCompany(value)}
-                    />
-                </Div>
-                <Div>
-                    <Input
-                        type='text'
-                        placeholder='Mobile'
-                        value={mobile}
-                        onChange={(value) => setMobile(value)}
-                    />
-                </Div>
-                <Div>
-                    <Input
-                        type='text'
-                        placeholder='Email'
-                        value={mail}
-                        onChange={(value) => setMail(value)}
-                    />
-                </Div>
-                <Div>
-                    <TextArea
-                        value={question}
-                        onChange={(value) => setQuestion(value)}
-                        placeholder='question'
-                        rows={5}
-                    />
-                </Div>
-                <Div>
-                    <BtnForm
-                        title='Send'
-                        btnType="send"
-                        width={true}
-                        height={true}
-                        borderColor={false}
-                        onClick={() => alert('Button 1 is clicked !')}
-                    />
-                </Div>
-            </FormWrapper>
-            <RightSide>
-                <Title>Just be <br /> Yourself!</Title>
-                <div>
-                    <ContactText>
-                        Contact us:
-                        <span> <TelAtag href="tel:+1 (533) 6454 45454">+1 (533) 6454 45454</TelAtag></span>
-                        12/53 Towers Ave., 19726, California, USA
-                        <br /> <span> <Mailatag href="mailto:info@booreykoo.com">info@booreykoo.com</Mailatag></span>
-                    </ContactText>
-                </div>
-            </RightSide>
-            {showHide === true ? (
-                    <BurgerMenu />
-                ) : null}
-                <Button onClick={() => setshowHide(showHide === true ? false : true)}>
-                    <Burger
-                        divType='black'
-                    />
-                </Button>
-        </Body>
-
+        </>
     )
 }
 

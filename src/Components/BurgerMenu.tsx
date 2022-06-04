@@ -1,39 +1,26 @@
 import React, { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import styled from 'styled-components';
+import api from '../api';
 import Home from '../Pages/Home';
 
 const BurgerMenu: React.FC = () => {
+    const { data: menus, isFetching: isMenusLoading, refetch: refetchMenus } = api.useGetMenusQuery(undefined);
 
-    return (
+
+    return isMenusLoading ? (<span>loading...</span>) : !menus ? (<span>not found menu</span>) : (
         <Nav>
 
             <Ul>
-                <li>
-                    <NavLink style={{ textDecoration: 'unset', color: '#161616' }} to="/">
-                        Home
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink style={{ textDecoration: 'unset', color: '#161616' }} to="/about">
-                        About
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink style={{ textDecoration: 'unset', color: '#161616' }} to="/services">
-                        Servises
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink style={{ textDecoration: 'unset', color: '#161616' }} to="/portfolio">
-                        Portfolio
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink style={{ textDecoration: 'unset', color: '#161616' }} to="/contact">
-                        Contact
-                    </NavLink>
-                </li>
+                {menus.data.items.map((m, index) => (
+                    <li>
+                        <NavLink style={{ textDecoration: 'unset', color: '#161616' }} to={m.href === "contact" ? `/${m.href}` : m.href}>
+                           {m.label}
+                        </NavLink>
+                    </li>
+               ))}
+
+
             </Ul>
 
         </Nav>
@@ -41,7 +28,11 @@ const BurgerMenu: React.FC = () => {
 }
 
 const Nav = styled.nav`
-  
+    z-index: 4;
+    height: 100vh;
+    position: fixed;
+    right: 0;
+    top: 0;
 `
 
 const Ul = styled.ul`
@@ -53,9 +44,7 @@ const Ul = styled.ul`
     width: 350px;
     height: 100%;
     background-color: #cdc152;
-    position: fixed;
-    top: -16px;
-    right: 0;
+    margin: 0px;
    
 
     li{

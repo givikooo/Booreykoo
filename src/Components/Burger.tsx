@@ -28,6 +28,7 @@ const StyledBurger = styled.div`
     justify-content: space-around;
     flex-flow: column nowrap;
     cursor: pointer;
+    z-index: 2;
     /* div{
         width: 32px;
         height: 4px;
@@ -36,7 +37,7 @@ const StyledBurger = styled.div`
     } */
 `
 const Div = styled.div<{ $divColor?: string }>`
-    background-color: ${({ $divColor }) => ($divColor === "black" ? '#161616' : $divColor === "white" ? "#ffffff" : "unset")};
+    background-color: ${({ $divColor }) => ($divColor === "black" ? '#161616' : $divColor === "white" ? "#ffffff" : "red")};
     width: 32px;
     height: 4px;
     border-radius: 10px;

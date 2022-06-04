@@ -11,6 +11,8 @@ import {
 import About from "./Pages/About";
 import Services from './Pages/Services';
 import Contact from './Pages/Contact';
+import Layout from './Components/Layout';
+import Portfolio from "./Pages/Portfolio";
 
 function App() {
 
@@ -21,25 +23,41 @@ function App() {
         <Route
           path="/"
           element={
-            <Home />
+            <Layout>
+              <Home />
+            </Layout>
           }
         />
         <Route
-          path="/about"
+          path="about"
           element={
-            <About />
+            <Layout>
+              <About />
+            </Layout>
           }
         />
         <Route
-          path="/services"
+          path="services"
           element={
-            <Services />
+            <Layout>
+              <Services />
+            </Layout>
+          }
+        />
+        <Route
+          path="contact"
+          element={
+            <Layout>
+              <Contact />
+            </Layout>
           }
         />
          <Route
-          path="/contact"
+          path="portfolio"
           element={
-            <Contact />
+            <Layout>
+              <Portfolio />
+            </Layout>
           }
         />
       </Routes>

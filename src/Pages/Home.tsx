@@ -1,20 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import Burger from "../Components/Burger";
-import BurgerMenu from "../Components/BurgerMenu";
 import BtnForm from "../Components/Button";
-
+import api from "../api";
+import { useNavigate } from "react-router-dom";
 
 
 const Home = () => {
-    const [showHide, setshowHide] = useState<boolean>(false);
-
-
+    const navigate = useNavigate();
 
 
     return (
         <>
             <Body>
+
                 <MainWrapp>
                     <ImgTag>
                         <img src="https://booreykoo.com/images/booreykoo.svg" alt="" />
@@ -24,31 +22,23 @@ const Home = () => {
                         putting everything aside to be yourself!
                     </TextTag>
                 </MainWrapp>
-                <div style={{marginTop: '230px'}} >
+                <div style={{ marginTop: '230px' }} >
                     <BtnForm
                         title='Contact us'
                         btnType="contact"
                         width={true}
                         height={true}
                         borderColor={true}
-                        onClick={() => alert('Button 1 is clicked !')}
+                        onClick={() => navigate(`/contact`)}
                     />
                 </div>
-                {showHide === true ? (
-                    <BurgerMenu />
-                ) : null}
-                <Button onClick={() => setshowHide(showHide === true ? false : true)}>
-                    <Burger 
-                        divType='white'
-                    />
-                </Button>
             </Body>
         </>
     )
 
 }
 
-const Body = styled.body`
+const Body = styled.div`
     background-color: #161616;
     height: 100vh;
     display: flex;

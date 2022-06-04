@@ -32,6 +32,7 @@ const InputTag = styled.input`
     padding: 12px 12px;
     border: 2px solid #161616;
     background-color: transparent;
+    outline: none;
 `
 
 export default Input
