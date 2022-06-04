@@ -7,6 +7,8 @@ import BtnForm from '../Components/Button';
 import BurgerMenu from '../Components/BurgerMenu';
 
 import Burger from '../Components/Burger';
+import { useNavigate } from 'react-router-dom';
+import Colors from './../assets/colors';
 
 const Contact = () => {
     const [name, setName] = useState('')
@@ -14,8 +16,9 @@ const Contact = () => {
     const [mobile, setMobile] = useState('')
     const [mail, setMail] = useState('')
     const [question, setQuestion] = useState('')
+    
 
-    const [showHide, setshowHide] = useState<boolean>(false);
+   
 
     return (
         <>
@@ -84,7 +87,6 @@ const Contact = () => {
                     </div>
                 </RightSide>
             </Body>
-
         </>
     )
 }
@@ -99,7 +101,7 @@ const Div = styled.div`
     margin-top: 20px;
 `
 const Body = styled.section`
-    background-color: #CDC152;
+    background-color: ${Colors.Orange};
     height: 100vh;
     display: flex;
     justify-content: space-around;
@@ -114,14 +116,14 @@ const RightSide = styled.div`
 
 const Title = styled.h1`
     text-align: right;
-    color: #161616;
+    color: ${Colors.Black};
     font-weight: bold;
     font-family: 'Roboto';
     font-size: 48px;
     line-height: 56px;
 `
 const ContactText = styled.p`
-    color: #161616;
+    color: ${Colors.Black};
     font-family: 'Roboto';
     font-size: 14px;
     line-height: 16px;
@@ -129,11 +131,11 @@ const ContactText = styled.p`
 `
 const TelAtag = styled.a`
     text-decoration: unset;
-    color: #161616;
+    color: ${Colors.Black};
 `
 const Mailatag = styled.a`
     text-decoration: unset;
-    color: #161616;
+    color: ${Colors.Black};
     font-weight: bold;
 `
 

@@ -13,6 +13,9 @@ import Services from './Pages/Services';
 import Contact from './Pages/Contact';
 import Layout from './Components/Layout';
 import Portfolio from "./Pages/Portfolio";
+import NotFound from "./Components/NotFound";
+import PorfolioDetailed from './Pages/PortfolioDetailed';
+import PortfolioDetailed from "./Pages/PortfolioDetailed";
 
 function App() {
 
@@ -23,7 +26,7 @@ function App() {
         <Route
           path="/"
           element={
-            <Layout>
+            <Layout >
               <Home />
             </Layout>
           }
@@ -52,12 +55,26 @@ function App() {
             </Layout>
           }
         />
-         <Route
+        <Route
           path="portfolio"
           element={
             <Layout>
               <Portfolio />
             </Layout>
+          }
+        />
+        <Route
+          path="portfolio/:slug"
+          element={
+            <Layout link="/portfolio">
+              <PortfolioDetailed />
+            </Layout>
+          }
+        />
+        <Route
+          path="*"
+          element={
+            <NotFound/>
           }
         />
       </Routes>

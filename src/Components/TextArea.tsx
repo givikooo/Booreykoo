@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
+import Colors from '../assets/colors';
 
 
 const TextArea: React.FC<{
@@ -32,7 +33,7 @@ const TextArea: React.FC<{
 const TextAreatag = styled.textarea`
     width: 100%;
     padding: 8px 12px;
-    border: 2px solid #161616;
+    border: 2px solid ${Colors.Black};
     background-color: transparent;
 `
 

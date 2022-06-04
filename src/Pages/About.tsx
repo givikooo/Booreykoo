@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components'
-import Burger from '../Components/Burger';
-import BurgerMenu from '../Components/BurgerMenu';
 import BtnForm from '../Components/Button'
+import Colors from './../assets/colors';
 
 const About = () => {
-    const [showHide, setshowHide] = useState<boolean>(false);
+
     const navigate = useNavigate()
     return (
         <>
@@ -33,7 +32,7 @@ const About = () => {
                     width={true}
                     height={true}
                     borderColor={true}
-                    onClick={() => alert('Button 1 is clicked !')}
+                    onClick={() => navigate(`/contact`)}
                 />
             </Container>
 
@@ -42,7 +41,7 @@ const About = () => {
 }
 
 const Container = styled.section`
-    background-color: #ffffff;
+    background-color: ${Colors.White};
     padding: 0 350px;
     height: 100vh;
     display: flex;
@@ -65,7 +64,7 @@ const TextTitle = styled.h4`
         display: block;
         width: 13px;
         height: 2px;
-        background-color: #333333;
+        background-color: ${Colors.Shaft};
         margin: 10px 0 12px;
     }
 `
@@ -83,7 +82,7 @@ const Li = styled.li`
     line-height: 16px;
     font-family: 'roboto';
     list-style-type: none;
-    color: #161616;
+    color: ${Colors.Black};
 `
 const Button = styled.button`
     background-color: transparent;

@@ -1,68 +1,45 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import api from '../api'
 import Burger from '../Components/Burger'
 import BurgerMenu from '../Components/BurgerMenu'
 import BtnForm from '../Components/Button'
 import ServiceWrap from '../Components/ServiceWrap'
+import Loader from '../Components/Loader';
+import { useNavigate } from 'react-router-dom'
+import NotFound404 from '../Components/NotFound'
+import Colors from '../assets/colors'
 
 const Services = () => {
+    const { data: services, isFetching: isServicesLoading, refetch: refetchServices } = api.useGetServicesQuery(undefined);
 
-    const [showHide, setshowHide] = useState<boolean>(false);
-    return (
+    const navigate = useNavigate()
+
+    return isServicesLoading ? <Loader /> : !services ? <NotFound404 /> : (
         <>
             <Body>
                 <HeadWrapper>
                     <HeaderTitle>
-                        Services
+                        {services.data.title}
                     </HeaderTitle>
                     <p>
-                        Booreykoo is a branding, web development, design, and marketing firm with more than fourteen years of industry experience, serving clients worldwide. Welcome to the future of design. <br />
-                        Our main goal is not only to rank your website higher but also maintain its high rank once achieved.
+                        {services.data.description}
                     </p>
                 </HeadWrapper>
                 <ContentWrapper>
                     <LeftSide>
-                        Just be Yourself!
+                        {services.data.sidebar_text}
                     </LeftSide>
                     <RightSide>
                         <Div>
-                            <ServiceWrap
-                                title='Mobile & Web development'
-                                content='Booreykoo has extensive experience in custom mobile and web development. We constantly develop our technology capabilities to always deliver the agile and top notch products.'
-                            />
-                            <ServiceWrap
-                                title='Mobile & Web development'
-                                content='Booreykoo has extensive experience in custom mobile and web development. We constantly develop our technology capabilities to always deliver the agile and top notch products.'
-                            />
-                            <ServiceWrap
-                                title='Mobile & Web development'
-                                content='Booreykoo has extensive experience in custom mobile and web development. We constantly develop our technology capabilities to always deliver the agile and top notch products.'
-                            />
-                            <ServiceWrap
-                                title='Mobile & Web development'
-                                content='Booreykoo has extensive experience in custom mobile and web development. We constantly develop our technology capabilities to always deliver the agile and top notch products.'
-                            />
-                            <ServiceWrap
-                                title='Mobile & Web development'
-                                content='Booreykoo has extensive experience in custom mobile and web development. We constantly develop our technology capabilities to always deliver the agile and top notch products.'
-                            />
-                            <ServiceWrap
-                                title='Mobile & Web development'
-                                content='Booreykoo has extensive experience in custom mobile and web development. We constantly develop our technology capabilities to always deliver the agile and top notch products.'
-                            />
-                            <ServiceWrap
-                                title='Mobile & Web development'
-                                content='Booreykoo has extensive experience in custom mobile and web development. We constantly develop our technology capabilities to always deliver the agile and top notch products.'
-                            />
-                            <ServiceWrap
-                                title='Mobile & Web development'
-                                content='Booreykoo has extensive experience in custom mobile and web development. We constantly develop our technology capabilities to always deliver the agile and top notch products.'
-                            />
-                            <ServiceWrap
-                                title='Mobile & Web development'
-                                content='Booreykoo has extensive experience in custom mobile and web development. We constantly develop our technology capabilities to always deliver the agile and top notch products.'
-                            />
+                            {services.data.items.map((s, index) => (
+                                <ServiceWrap
+                                    title={s.title}
+                                    content={s.description}
+                                />
+                            ))}
                         </Div>
+
                     </RightSide>
                 </ContentWrapper>
                 <BtnDiv>
@@ -72,7 +49,7 @@ const Services = () => {
                         width={true}
                         height={true}
                         borderColor={true}
-                        onClick={() => alert('Button 1 is clicked !')}
+                        onClick={() => navigate(`/contact`)}
                     />
                 </BtnDiv>
             </Body>
@@ -93,7 +70,7 @@ const HeadWrapper = styled.div`
     font-size: 14px;
     line-height: 16px;
     font-style: normal;
-    color: #161616;
+    color: ${Colors.Black};
     margin-bottom: 30px;
 `
 const HeaderTitle = styled.h4`
@@ -104,7 +81,7 @@ const HeaderTitle = styled.h4`
         display: block;
         width: 13px;
         height: 2px;
-        background-color: #333333;
+        background-color: ${Colors.Shaft};
         margin: 10px 0 12px;
     }
 `
@@ -116,11 +93,11 @@ const ContentWrapper = styled.div`
 const LeftSide = styled.div`
     padding:0 95px;
     writing-mode: vertical-rl;
-    background-color: #CDC152;
+    background-color: ${Colors.Orange};
     height: 100%;
     display: flex;
     justify-content: center;
-    color: #161616;
+    color: ${Colors.Black};
     font-weight: bold;
     font-size: 24px;
 `
@@ -133,7 +110,7 @@ const Div = styled.div`
 `
 
 const RightSide = styled.div`
-   background-color: #161616;
+   background-color: ${Colors.Black};
    width: 100%;
    row-gap: 40px;
    grid-template-columns: repeat(3,minmax(0,1fr));

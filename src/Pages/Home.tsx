@@ -3,6 +3,7 @@ import styled from "styled-components";
 import BtnForm from "../Components/Button";
 import api from "../api";
 import { useNavigate } from "react-router-dom";
+import Colors from "../assets/colors";
 
 
 const Home = () => {
@@ -39,7 +40,7 @@ const Home = () => {
 }
 
 const Body = styled.div`
-    background-color: #161616;
+    background-color: ${Colors.Black};
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -57,7 +58,7 @@ const TextTag = styled.p`
     font-size: 12px;
     line-height: 14px;
     text-align: center;
-    color: #ffffff;
+    color: ${Colors.White};
     font-family:'Roboto';
     margin-top: 55px;
 `
