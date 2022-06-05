@@ -7,30 +7,38 @@ import Loader from './Loader';
 import { FaFacebookF, FaInstagram } from 'react-icons/fa';
 import NotFound404 from './NotFound';
 import Responsive from '../Responsive';
+import { useEffect } from 'react';
+import Colors from '../assets/colors';
 
-
-const BurgerMenu: React.FC = () => {
+const BurgerMenu: React.FC<{
+    onClose: boolean;
+}> = ({
+    onClose
+}) => {
     const { data: menus, isFetching: isMenusLoading, refetch: refetchMenus } = api.useGetMenusQuery(undefined);
+    const Pathname = window.location.pathname;
+    const [showHide, setshowHide] = useState<boolean>(onClose);
 
+    console.log(showHide)
 
     return isMenusLoading ? <Loader /> : !menus ? <NotFound404 /> : (
-        <Header>
+        <Header style={Pathname === "/contact" ? { backgroundColor: Colors.Black } : { backgroundColor: Colors.Orange }} onMouseLeave={() => setshowHide(false)}>
             <Nav>
                 <Ul>
                     {menus.data.items.map((m, index) => (
                         <li>
-                            <NavLink style={{ textDecoration: 'unset', color: '#161616' }} to={m.href === "contact" ? `/${m.href}` : m.href}>
+                            <NavLinkStyle style={Pathname === "/contact" ? { color: Colors.White } : { color: Colors.Black }} to={m.href === "contact" ? `/${m.href}` : m.href}>
                                 {m.label}
-                            </NavLink>
+                            </NavLinkStyle>
                         </li>
                     ))}
                 </Ul>
-                <Text>{menus.data.text}</Text>
+                <Text style={Pathname === '/contact' ? {color:Colors.White} : {color: Colors.Black}} >{menus.data.text}</Text>
                 <SocialWrapper>
                     {menus.data.social.map((s, index) => (
                         <div>
                             <a href={`${s.href}`} target="_blank">
-                                {s.icon === "facebook" ? <FbIcon /> : s.icon === "instagram" ? <InstaIcon /> : "icons not found"}
+                                {s.icon === "facebook" ? <FbIcon style={Pathname === '/contact' ? { color: Colors.White } : { color: Colors.Black }} /> : s.icon === "instagram" ? <InstaIcon style={Pathname === '/contact' ? { color: Colors.White } : { color: Colors.Black }} /> : "icons not found"}
                             </a>
                         </div>
                     ))}
@@ -40,13 +48,17 @@ const BurgerMenu: React.FC = () => {
     )
 }
 
+const NavLinkStyle = styled(NavLink)`
+    text-decoration: unset;
+    color: ${Colors.Black};
+`;
 const Header = styled.header`
     z-index: 4;
     height: 100vh;
     position: fixed;
     right: 0;
     top: 0;
-    background-color: #cdc152;
+    background-color: ${Colors.Orange};
     ${Responsive.tablet}{
         width: 100%;
     }

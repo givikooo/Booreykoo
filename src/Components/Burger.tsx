@@ -28,7 +28,7 @@ const StyledBurger = styled.div`
     justify-content: space-around;
     flex-flow: column nowrap;
     cursor: pointer;
-    z-index: 2;
+    z-index: 10;
 
 `
 const Div = styled.div<{ $divColor?: string }>`

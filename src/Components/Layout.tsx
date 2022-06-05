@@ -18,18 +18,20 @@ const Layout: React.FC<{ children?: React.ReactNode; link?: string }> = ({ child
     return (
         <>
             {showHide === true ? (
-                <BurgerMenu />
+               <div onMouseLeave={() => setshowHide(false)}>
+                    <BurgerMenu onClose={showHide} />
+               </div>
             ) : null}
             {link ? (
                 <ArrowLink to={link}><IconStyle /></ArrowLink>
             ) : null}
             <Button onClick={() => setshowHide(showHide === true ? false : true)}>
                 <Burger
-                    divType={Pathname == "/" ? "white" : "black"}
+                    divType={Pathname == "/" ? "white" : "black" && Pathname === "/portfolio" ? "white" : "black" && Pathname === "/about" ? "black" : "white" && Pathname === "/services" ? "black" : "white"}
                 />
             </Button>
-            <Messenger/>
-        
+            <Messenger />
+
             <main>
                 {children}
             </main>
