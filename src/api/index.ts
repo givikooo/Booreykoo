@@ -28,7 +28,7 @@ export const api = createApi({
           method: "GET",
         }),
       }),
-      getPortfolioDetailed: builder.query<PortfolioDetail, string>({
+      getPortfolioDetailed: builder.query<PortfolioDetail, string>({ // get Portfolio inside items
         query: (slug) => ({
           url: `/portfolio/${slug}`,
           method: "GET",

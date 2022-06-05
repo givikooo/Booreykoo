@@ -4,6 +4,8 @@ import BtnForm from "../Components/Button";
 import api from "../api";
 import { useNavigate } from "react-router-dom";
 import Colors from "../assets/colors";
+import Responsive from "../Responsive";
+
 
 
 const Home = () => {
@@ -13,17 +15,16 @@ const Home = () => {
     return (
         <>
             <Body>
-
                 <MainWrapp>
                     <ImgTag>
-                        <img src="https://booreykoo.com/images/booreykoo.svg" alt="" />
+                        <Img src="https://booreykoo.com/images/booreykoo.svg" alt="" />
                     </ImgTag>
                     <TextTag>
                         BUREIKOU - [BOO-REY-KOO] JAPANESE 無礼講 <br />
                         putting everything aside to be yourself!
                     </TextTag>
                 </MainWrapp>
-                <div style={{ marginTop: '230px' }} >
+                <div style={{marginTop: '220px'}} >
                     <BtnForm
                         title='Contact us'
                         btnType="contact"
@@ -54,6 +55,16 @@ const MainWrapp = styled.div`
 const ImgTag = styled.div`
    
 `
+const Img = styled.img`
+    width: 100%;
+    ${Responsive.tablet}{
+        width: 75%;
+    }
+    ${Responsive.mobile}{
+        width: 50%;
+    }
+`
+
 const TextTag = styled.p`
     font-size: 12px;
     line-height: 14px;
@@ -61,12 +72,11 @@ const TextTag = styled.p`
     color: ${Colors.White};
     font-family:'Roboto';
     margin-top: 55px;
+    ${Responsive.mobile}{
+        font-size: 10px;
+    }
 `
 
-const Button = styled.button`
-    background-color: transparent;
-    border: 0px;
-`
 
 
 

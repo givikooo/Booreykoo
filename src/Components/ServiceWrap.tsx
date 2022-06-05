@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Colors from '../assets/colors';
+import Responsive from '../Responsive';
 
 const ServiceWrap: React.FC<{
     title: string;
@@ -30,14 +31,26 @@ const Title = styled.h3`
     color: ${Colors.White};
     text-align: justify;
     max-width: 415px;
+    ${Responsive.tablet}{
+        font-size: 15px;
+    }
+    ${Responsive.mobile}{
+        font-size: 12px;
+    }
 `
 const Content = styled.p`
-    width: 310px;
+   
     color: ${Colors.White};
     font-family: 'Roboto';
     font-size: 14px;
     line-height: 16px;
     text-align: justify;
+    ${Responsive.tablet}{
+        font-size: 12px;
+    }
+    ${Responsive.mobile}{
+        font-size: 10px;
+    }
 `
 
 export default ServiceWrap

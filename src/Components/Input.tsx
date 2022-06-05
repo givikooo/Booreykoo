@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
+import Colors from '../assets/colors';
 
 
 const Input: React.FC<{
@@ -30,7 +31,7 @@ const Input: React.FC<{
 const InputTag = styled.input`
     width: 100%;
     padding: 12px 12px;
-    border: 2px solid #161616;
+    border: 2px solid ${Colors.Black};
     background-color: transparent;
     outline: none;
 `

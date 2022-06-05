@@ -4,6 +4,9 @@ import Burger from "./Burger";
 import BurgerMenu from "./BurgerMenu";
 import { Link } from 'react-router-dom';
 import { BiArrowBack } from 'react-icons/bi';
+import Messenger from "./Messanger";
+
+
 
 
 const Layout: React.FC<{ children?: React.ReactNode; link?: string }> = ({ children, link }) => {
@@ -21,10 +24,14 @@ const Layout: React.FC<{ children?: React.ReactNode; link?: string }> = ({ child
                 <ArrowLink to={link}><IconStyle /></ArrowLink>
             ) : null}
             <Button onClick={() => setshowHide(showHide === true ? false : true)}>
-                <Burger divType={Pathname == "/"  ? "white" : "black"} />
+                <Burger
+                    divType={Pathname == "/" ? "white" : "black"}
+                />
             </Button>
+            <Messenger/>
+        
             <main>
-              {children}
+                {children}
             </main>
         </>
     )

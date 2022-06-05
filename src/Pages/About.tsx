@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components'
 import BtnForm from '../Components/Button'
+import Responsive from '../Responsive';
 import Colors from './../assets/colors';
 
 const About = () => {
@@ -11,7 +12,7 @@ const About = () => {
         <>
             <Container>
                 <ImgTag>
-                    <img src="https://booreykoo.com/images/booreykoo-black.svg" alt="" />
+                    <Img src="https://booreykoo.com/images/booreykoo-black.svg" alt="" />
                 </ImgTag>
                 <TextWrapper>
                     <TextTitle>About us</TextTitle>
@@ -48,10 +49,26 @@ const Container = styled.section`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    ${Responsive.tablet}{
+        padding: unset;
+    }
+    ${Responsive.mobile}{
+        padding: unset;
+    }
  `
 const ImgTag = styled.div`
-    
+   text-align: center;
 `
+const Img = styled.img`
+    width: 100%;
+    ${Responsive.tablet}{
+        width: 75%;
+    }
+    ${Responsive.mobile}{
+        width: 50%;
+    }
+`
+
 const TextWrapper = styled.div`
     
 `
@@ -66,6 +83,9 @@ const TextTitle = styled.h4`
         height: 2px;
         background-color: ${Colors.Shaft};
         margin: 10px 0 12px;
+    }
+    ${Responsive.mobile}{
+        font-size: 12px;
     }
 `
 const TextContent = styled.div`
@@ -83,6 +103,9 @@ const Li = styled.li`
     font-family: 'roboto';
     list-style-type: none;
     color: ${Colors.Black};
+    ${Responsive.mobile}{
+        font-size: 12px;
+    }
 `
 const Button = styled.button`
     background-color: transparent;

@@ -9,6 +9,7 @@ import Loader from '../Components/Loader';
 import { useNavigate } from 'react-router-dom'
 import NotFound404 from '../Components/NotFound'
 import Colors from '../assets/colors'
+import Responsive from '../Responsive'
 
 const Services = () => {
     const { data: services, isFetching: isServicesLoading, refetch: refetchServices } = api.useGetServicesQuery(undefined);
@@ -22,9 +23,9 @@ const Services = () => {
                     <HeaderTitle>
                         {services.data.title}
                     </HeaderTitle>
-                    <p>
+                    <HeaderText>
                         {services.data.description}
-                    </p>
+                    </HeaderText>
                 </HeadWrapper>
                 <ContentWrapper>
                     <LeftSide>
@@ -65,13 +66,16 @@ const Button = styled.button`
 
 const HeadWrapper = styled.div`
     margin-top: 80px    ;
-    padding: 0 222px;
+    padding-left: 222px;
     font-family: "roboto";
     font-size: 14px;
     line-height: 16px;
     font-style: normal;
     color: ${Colors.Black};
     margin-bottom: 30px;
+    ${Responsive.mobile}{
+        padding-left: 130px;
+    }
 `
 const HeaderTitle = styled.h4`
     font-size: 16px;
@@ -84,7 +88,16 @@ const HeaderTitle = styled.h4`
         background-color: ${Colors.Shaft};
         margin: 10px 0 12px;
     }
+    ${Responsive.mobile}{
+        font-size: 12px;
+    }
 `
+const HeaderText = styled.p`
+    ${Responsive.mobile}{
+        font-size: 10px;
+    }
+`
+
 const ContentWrapper = styled.div`
     height: 620px;
     display: flex;
@@ -100,6 +113,9 @@ const LeftSide = styled.div`
     color: ${Colors.Black};
     font-weight: bold;
     font-size: 24px;
+    ${Responsive.mobile}{
+        padding:0 45px;
+    }
 `
 
 const Div = styled.div`
@@ -107,16 +123,24 @@ const Div = styled.div`
     row-gap: 40px;
     column-gap: 80px;
     grid-template-columns: repeat(3,minmax(0,1fr));
+    ${Responsive.tablet}{
+        column-gap: 40px;
+    }
+    ${Responsive.mobile}{
+        display: unset;
+    }
 `
 
 const RightSide = styled.div`
    background-color: ${Colors.Black};
    width: 100%;
+   height: 100%;
    row-gap: 40px;
    grid-template-columns: repeat(3,minmax(0,1fr));
-   /* padding-left: 60px;
-   padding-right: 60px; */
    padding: 60px;
+   ${Responsive.mobile}{
+    padding: 20px;
+    }
 `
 
 const Body = styled.section`
@@ -126,7 +150,7 @@ const Body = styled.section`
 const BtnDiv = styled.div`
     margin-left: auto;
     margin-right: auto;
-    margin-top: 45px;
+    margin-top: 15px;
 `
 
 export default Services

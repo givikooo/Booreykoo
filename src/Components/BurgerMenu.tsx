@@ -6,6 +6,7 @@ import Home from '../Pages/Home';
 import Loader from './Loader';
 import { FaFacebookF, FaInstagram } from 'react-icons/fa';
 import NotFound404 from './NotFound';
+import Responsive from '../Responsive';
 
 
 const BurgerMenu: React.FC = () => {
@@ -46,9 +47,18 @@ const Header = styled.header`
     right: 0;
     top: 0;
     background-color: #cdc152;
+    ${Responsive.tablet}{
+        width: 100%;
+    }
+    ${Responsive.mobile}{
+        width: 100%;
+        height: 100%;
+    }
 `;
 const Nav = styled.nav`
-   
+    ${Responsive.tablet}{
+        width: 100%;
+    }
 `
 const Text = styled.div`
     text-align: center;
@@ -59,6 +69,9 @@ const Text = styled.div`
     font-weight: bold;
     padding-left: 30px;
     margin-top: 60px;
+    ${Responsive.mobile}{
+        font-size: 12px;
+    }
 `
 
 const Ul = styled.ul`
@@ -68,9 +81,18 @@ const Ul = styled.ul`
     text-decoration: unset;
     list-style-type: none;
     width: 350px;
-    height: 100%;
-    
+    /* height: 100%; */
     margin: 0px;
+    ${Responsive.tablet}{
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+    }
+    ${Responsive.mobile}{
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+    }
    
 
     li{
@@ -83,13 +105,22 @@ const Ul = styled.ul`
        &:first-child{
         margin-top: 170px;
        }
+       ${Responsive.tablet}{
+           font-size: 24px;
+       }
+       ${Responsive.mobile}{
+           font-size: 14px;
+       }
     }
 `
 const SocialWrapper = styled.div`
     display: flex;
     justify-content: space-evenly;
     padding: 0 140px;
-    margin-top: 120px;
+    margin-top: 20px;
+    ${Responsive.mobile}{
+        padding: 0 60px;
+    }
 
 `
 

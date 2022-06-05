@@ -5,6 +5,7 @@ import api from '../api';
 import Colors from '../assets/colors';
 import Loader from '../Components/Loader';
 import NotFound404 from '../Components/NotFound';
+import Responsive from '../Responsive';
 
 const PortfolioDetailed = () => {
     const { slug = '' } = useParams();
@@ -19,17 +20,11 @@ const PortfolioDetailed = () => {
                         {portfolioDetail.data.title}
                     </HeaderTitle>
                     <Text>
-                        Logo design and brand identity pack. Nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam eratinim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit es.
-                        <br /> <br />
-                        Nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam eratinim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit es.Nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam eratinim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit es.Nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam eratinim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit es.Nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam eratinim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit es.Nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam eratinim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit es.
-                        <br />
-                        Nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam eratinim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit es.Nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam eratinim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit es.Nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam eratinim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit es.
-                        <br /> <br />
-                        Nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam eratinim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit es.
+                        {portfolioDetail.data.description}
                     </Text>
                 </LeftSide>
                 <div>
-                    <Img src="https://c1.wallpaperflare.com/preview/6/50/470/horse-western-ride-stall.jpg" alt="" />
+                    <Img src={portfolioDetail.data.thumb} alt="" />
                 </div>
             </MainWrapper>
         </>
@@ -63,10 +58,15 @@ const MainWrapper = styled.div`
     grid-row-gap: 0px;
     height: 100vh;
     padding: 20px;
+    ${Responsive.mobile}{
+        grid-template-columns: repeat(1,1fr);
+    }
 `
 const Img = styled.img`
     width: 100%;
     height: 100%;
+    object-fit: cover;
+    overflow: hidden;
 `
 const LeftSide = styled.div`
     padding-top: 50px;
