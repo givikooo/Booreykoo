@@ -47,10 +47,16 @@ const Body = styled.div`
     flex-direction: column;
     align-items: center;
     position: relative;
+    ${Responsive.mobile}{
+        justify-content: center;
+    }
 `
 const MainWrapp = styled.div`
     text-align: center;
     margin-top: 420px;
+    ${Responsive.mobile}{
+        margin-top: unset;
+    }
 `
 const ImgTag = styled.div`
    
