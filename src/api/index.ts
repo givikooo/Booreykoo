@@ -1,6 +1,4 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import PortfolioDetailed from "../Pages/PortfolioDetailed";
-import PorfolioDetailed from "../Pages/PortfolioDetailed";
 import { Menu, Portfolio, PortfolioDetail, Services } from "../type";
 
 export const apiUrl = `https://api.perse.pro/api/`;

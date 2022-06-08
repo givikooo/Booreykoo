@@ -4,26 +4,9 @@ import "react-multi-carousel/lib/styles.css";
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import api from '../api';
+import { responsive } from '../GlobalStyle';
 import Loader from './Loader';
-const responsive = {
-    superLargeDesktop: {
-        // the naming can be any, depends on you.
-        breakpoint: { max: 4000, min: 3000 },
-        items: 2,
-    },
-    desktop: {
-        breakpoint: { max: 3000, min: 1024 },
-        items: 1,
-    },
-    tablet: {
-        breakpoint: { max: 1024, min: 464 },
-        items: 2
-    },
-    mobile: {
-        breakpoint: { max: 464, min: 0 },
-        items: 1
-    }
-};
+
 const Slider = () => {
     const { data: portfolio, isFetching: isPortfolioLoading, refetch: refetchPortfolio } = api.useGetPortfolioQuery(undefined);
     return isPortfolioLoading ? <Loader /> : !portfolio ? (<span>not found menu</span>) : (
@@ -72,6 +55,9 @@ const MainWrapper = styled.div`
    grid-template-rows: repeat(2, 1fr);
    grid-column-gap: 20px;
    grid-row-gap: 20px;
+   ${responsive.desktop}{
+       
+   }
 `
 const Wrapper = styled.div`
     position: relative;
@@ -99,8 +85,8 @@ const Descr = styled.p`
 `
 
 const Image = styled.img`
-    width: 608px;
-    height: 433px;
+    width: 100%;
+    height: 100%;
 `
 
 

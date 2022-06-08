@@ -10,6 +10,7 @@ import { useNavigate } from 'react-router-dom'
 import NotFound404 from '../Components/NotFound'
 import Colors from '../assets/colors'
 import Responsive from '../Responsive'
+import { ColumnWhiteBody } from '../GlobalStyle'
 
 const Services = () => {
     const { data: services, isFetching: isServicesLoading, refetch: refetchServices } = api.useGetServicesQuery(undefined);
@@ -18,7 +19,7 @@ const Services = () => {
 
     return isServicesLoading ? <Loader /> : !services ? <NotFound404 /> : (
         <>
-            <Body>
+            <ColumnWhiteBody>
                 <HeadWrapper>
                     <HeaderTitle>
                         {services.data.title}
@@ -45,25 +46,20 @@ const Services = () => {
                 </ContentWrapper>
                 <BtnDiv>
                     <BtnForm
-                        title='Contact us'
-                        btnType="send"
-                        btnWidth='large'
-                        btnHeight='high'
+                        btnSize='large'
                         btnBorder='orange'
                         type="button"
-                        onClick={() => navigate(`/contact`)}
-                    />
+                        onClick={() => navigate(`/contact`)}>
+                        Contact us
+                    </BtnForm>
                 </BtnDiv>
-            </Body>
+            </ColumnWhiteBody>
         </>
     )
 }
 
 
-const Button = styled.button`
-    background-color: transparent;
-    border: 0px;
-`
+
 
 const HeadWrapper = styled.div`
     margin-top: 80px    ;
@@ -75,7 +71,18 @@ const HeadWrapper = styled.div`
     color: ${Colors.Black};
     margin-bottom: 30px;
     ${Responsive.mobile}{
-        padding-left: 130px;
+        padding-left: 10px;
+        margin-bottom: 10px;
+        margin-top: 20px;
+    }
+    ${Responsive.tablet}{
+        padding-left: 30px;
+        margin-bottom: unset;
+        margin-top: 25px;
+    }
+    ${Responsive.laptop}{
+        margin-top: 40px;
+        padding-left: 200px;
     }
 `
 const HeaderTitle = styled.h4`
@@ -92,6 +99,7 @@ const HeaderTitle = styled.h4`
     ${Responsive.mobile}{
         font-size: 12px;
     }
+   
 `
 const HeaderText = styled.p`
     ${Responsive.mobile}{
@@ -100,8 +108,24 @@ const HeaderText = styled.p`
 `
 
 const ContentWrapper = styled.div`
-    height: 620px;
     display: flex;
+    height: 100vh;
+    ${Responsive.mobile}{
+        height: 100%;
+    }
+    ${Responsive.tablet}{
+        height: unset;
+    }
+    ${Responsive.laptop}{
+        height: unset;
+    }
+    ${Responsive.desktop}{
+        height: unset;
+    }
+    
+    ${Responsive.fullHD}{
+        height: 600px;
+    }
 `
 
 const LeftSide = styled.div`
@@ -115,7 +139,19 @@ const LeftSide = styled.div`
     font-weight: bold;
     font-size: 24px;
     ${Responsive.mobile}{
+        padding:0 20px;
+        height: unset;
+    }
+    ${Responsive.tablet}{
         padding:0 45px;
+        height: unset;
+    }
+    ${Responsive.desktop}{
+       height: unset;
+    }
+    ${Responsive.laptop}{
+       height: unset;
+       padding:0 80px;
     }
 `
 
@@ -124,12 +160,21 @@ const Div = styled.div`
     row-gap: 40px;
     column-gap: 80px;
     grid-template-columns: repeat(3,minmax(0,1fr));
-    ${Responsive.tablet}{
-        column-gap: 40px;
-    }
     ${Responsive.mobile}{
         display: unset;
     }
+    ${Responsive.tablet}{
+        display: unset;
+    }
+    ${Responsive.laptop}{
+        display: unset;
+    }
+    ${Responsive.desktop}{
+        row-gap: 200px;
+        column-gap: 40px; 
+    }
+    
+    
 `
 
 const RightSide = styled.div`
@@ -140,14 +185,20 @@ const RightSide = styled.div`
    grid-template-columns: repeat(3,minmax(0,1fr));
    padding: 60px;
    ${Responsive.mobile}{
-    padding: 20px;
+        padding: 20px;
+    }
+    ${Responsive.tablet}{
+        padding: 30px;
+    }
+    ${Responsive.desktop}{
+        padding: 30px;
+    }
+    ${Responsive.laptop}{
+        padding: 40px;
     }
 `
 
-const Body = styled.section`
-    display: flex;
-    flex-direction: column;
-`
+
 const BtnDiv = styled.div`
     margin-left: auto;
     margin-right: auto;

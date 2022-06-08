@@ -5,6 +5,7 @@ import BurgerMenu from "./BurgerMenu";
 import { Link } from 'react-router-dom';
 import { BiArrowBack } from 'react-icons/bi';
 import Messenger from "./Messanger";
+import Colors from './../assets/colors';
 
 
 
@@ -40,7 +41,7 @@ const Layout: React.FC<{ children?: React.ReactNode; link?: string }> = ({ child
 }
 
 const IconStyle = styled(BiArrowBack)`
-    color: #161616;
+    color: ${Colors.Black};
     width: 24px;
     height: 24px;
 `

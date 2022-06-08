@@ -67,14 +67,13 @@ const Contact = () => {
                     </Div>
                     <Div>
                         <BtnForm
-                            title='Send'
-                            btnType="send"
-                            btnWidth='small'
-                            btnHeight='low'
+                            btnSize='large'
                             btnBorder='black'
                             type='submit'
                             onClick={() => alert('Button 1 is clicked !')}
-                        />
+                        >
+                            contact us
+                        </BtnForm>
                     </Div>
                 </FormWrapper>
                 <RightSide>

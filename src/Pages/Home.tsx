@@ -24,17 +24,18 @@ const Home = () => {
                         putting everything aside to be yourself!
                     </TextTag>
                 </MainWrapp>
-                <div style={{marginTop: '220px'}} >
+
+
+                <BtnWrapper >
                     <BtnForm
-                        title='Contact us'
-                        btnType="contact"
-                        btnWidth="large"
-                        btnHeight="high"
+                        btnColor={Colors.White}
+                        btnSize="large"
                         btnBorder="orange"
                         type="button"
-                        onClick={() => navigate(`/contact`)}
-                    />
-                </div>
+                        onClick={() => navigate(`/contact`)}>
+                        Contact us
+                    </BtnForm>
+                </BtnWrapper>
             </Body>
         </>
     )
@@ -83,7 +84,18 @@ const TextTag = styled.p`
         font-size: 10px;
     }
 `
-
+const BtnWrapper = styled.div`
+    
+    ${Responsive.fullHD}{
+        margin-top: 150px;
+    }
+    ${Responsive.laptop}{
+        margin-top: 50px;
+    }
+    ${Responsive.mobile}{
+        margin-top: 100px;
+    }
+`
 
 
 
