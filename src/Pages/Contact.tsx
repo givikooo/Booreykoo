@@ -70,7 +70,7 @@ const Contact = () => {
                             btnSize='large'
                             btnBorder='black'
                             type='submit'
-                            onClick={() => alert('Button 1 is clicked !')}
+                            onClick={() => alert('Wish you a nice day <3 !')}
                         >
                             contact us
                         </BtnForm>
