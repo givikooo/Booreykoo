@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import api from '../api';
 import Home from '../Pages/Home';
@@ -10,6 +10,7 @@ import Responsive from '../Responsive';
 import { useEffect } from 'react';
 import Colors from '../assets/colors';
 
+
 const BurgerMenu: React.FC<{
     onClose: boolean;
 }> = ({
@@ -18,7 +19,7 @@ const BurgerMenu: React.FC<{
     const { data: menus, isFetching: isMenusLoading, refetch: refetchMenus } = api.useGetMenusQuery(undefined);
     const Pathname = window.location.pathname;
     const [showHide, setshowHide] = useState<boolean>(onClose);
-
+    const navigate = useNavigate();
     console.log(showHide)
 
     return isMenusLoading ? <Loader /> : !menus ? <NotFound404 /> : (

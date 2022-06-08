@@ -30,9 +30,10 @@ const About = () => {
                 <BtnForm
                     title='Contact us'
                     btnType="send"
-                    width={true}
-                    height={true}
-                    borderColor={true}
+                    btnWidth='large'
+                    btnHeight='high'
+                    btnBorder='orange'
+                    type='button'
                     onClick={() => navigate(`/contact`)}
                 />
             </Container>

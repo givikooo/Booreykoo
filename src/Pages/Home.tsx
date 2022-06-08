@@ -28,9 +28,10 @@ const Home = () => {
                     <BtnForm
                         title='Contact us'
                         btnType="contact"
-                        width={true}
-                        height={true}
-                        borderColor={true}
+                        btnWidth="large"
+                        btnHeight="high"
+                        btnBorder="orange"
+                        type="button"
                         onClick={() => navigate(`/contact`)}
                     />
                 </div>

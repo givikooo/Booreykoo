@@ -69,9 +69,10 @@ const Contact = () => {
                         <BtnForm
                             title='Send'
                             btnType="send"
-                            width={true}
-                            height={true}
-                            borderColor={false}
+                            btnWidth='small'
+                            btnHeight='low'
+                            btnBorder='black'
+                            type='submit'
                             onClick={() => alert('Button 1 is clicked !')}
                         />
                     </Div>
