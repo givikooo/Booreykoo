@@ -198,7 +198,6 @@ const RightSide = styled.div`
     }
 `
 
-
 const BtnDiv = styled.div`
     margin-left: auto;
     margin-right: auto;

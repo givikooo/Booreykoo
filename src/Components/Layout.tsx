@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { BiArrowBack } from 'react-icons/bi';
 import Messenger from "./Messanger";
 import Colors from './../assets/colors';
+import Loader from "./Loader";
 
 
 
@@ -17,7 +18,7 @@ const Layout: React.FC<{ children?: React.ReactNode; link?: string }> = ({ child
 
 
     return (
-        <>
+        <> 
             {showHide === true ? (
                <div onMouseLeave={() => setshowHide(false)}>
                     <BurgerMenu onClose={showHide} />
@@ -28,17 +29,19 @@ const Layout: React.FC<{ children?: React.ReactNode; link?: string }> = ({ child
             ) : null}
             <Button onClick={() => setshowHide(showHide === true ? false : true)}>
                 <Burger
-                    divType={Pathname == "/" ? "white" : "black" && Pathname === "/portfolio" ? "white" : "black" && Pathname === "/about" ? "black" : "white" && Pathname === "/services" ? "black" : "white"}
+                    divType={Pathname == "/" ? "white" : "black" }
                 />
             </Button>
             <Messenger />
-
+         
             <main>
                 {children}
             </main>
         </>
     )
 }
+
+
 
 const IconStyle = styled(BiArrowBack)`
     color: ${Colors.Black};
@@ -62,3 +65,5 @@ const Button = styled.button`
 `
 
 export default Layout
+
+

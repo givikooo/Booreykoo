@@ -39,7 +39,7 @@ const Slider = () => {
                                 <Descr>{p.description}</Descr>
                                 <Image src={p.thumb} alt="" />
                             </Link>
-
+  
                         </Wrapper>
                     ))}
                 </MainWrapper>
@@ -55,8 +55,8 @@ const MainWrapper = styled.div`
    grid-template-rows: repeat(2, 1fr);
    grid-column-gap: 20px;
    grid-row-gap: 20px;
-   ${responsive.desktop}{
-       
+   ${responsive.mobile}{
+    /* grid-template-columns: repeat(3, 1fr); */
    }
 `
 const Wrapper = styled.div`

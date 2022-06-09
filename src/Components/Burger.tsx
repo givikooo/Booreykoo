@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import Colors from '../assets/colors'
 
 
 
@@ -8,8 +9,6 @@ const Burger: React.FC<{
 }> = ({
     divType
 }) => {
-
-
         return (
             <StyledBurger >
                 <Div $divColor={divType} />
@@ -32,7 +31,7 @@ const StyledBurger = styled.div`
 
 `
 const Div = styled.div<{ $divColor?: string }>`
-    background-color: ${({ $divColor }) => ($divColor === "black" ? '#161616' : $divColor === "white" ? "#ffffff" : "red")};
+    background-color: ${({ $divColor }) => ($divColor === "black" ? Colors.Black : $divColor === "white" ? Colors.White : Colors.Orange )};
     width: 32px;
     height: 4px;
     border-radius: 10px;

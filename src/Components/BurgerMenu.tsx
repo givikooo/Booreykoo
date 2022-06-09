@@ -22,7 +22,7 @@ const BurgerMenu: React.FC<{
         const Pathname = window.location.pathname;
         const [showHide, setshowHide] = useState<boolean>(onClose);
         const navigate = useNavigate();
-        console.log(showHide)
+        console.log(showHide) 
 
         return isMenusLoading ? <Loader /> : !menus ? <NotFound404 /> : (
             <Header $Pathname={Pathname} onMouseLeave={() => setshowHide(true)}>

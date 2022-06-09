@@ -120,13 +120,15 @@ const Body = styled.section`
 const FormWrapper = styled.form`
     width: 650px;
     margin-top: 300px;
-    ${Responsive.tablet}{
-        margin-top: unset;
-    }
     ${Responsive.mobile}{
         margin-top: unset;
         width: 100%;
     }
+    ${Responsive.tablet}{
+        margin-top: unset;
+        width: 100%;
+    }
+    
 `
 const RightSide = styled.div`
     margin-top: 430px;
