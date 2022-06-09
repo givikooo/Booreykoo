@@ -93,10 +93,7 @@ const Contact = () => {
 }
 
 
-const Button = styled.button`
-    background-color: transparent;
-    border: 0px;
-`
+
 
 const Div = styled.div`
     margin-top: 20px;

@@ -127,6 +127,54 @@ ${Responsive.mobile}{
 `
 // BurgerMenu variables
 
+// Servise style
+
+export const HeadWrapper = styled.div`
+    margin-top: 80px    ;
+    padding-left: 222px;
+    font-family: "roboto";
+    font-size: 14px;
+    line-height: 16px;
+    font-style: normal;
+    color: ${Colors.Black};
+    margin-bottom: 30px;
+    ${Responsive.mobile}{
+        padding-left: 10px;
+        margin-bottom: 10px;
+        margin-top: 20px;
+    }
+    ${Responsive.tablet}{
+        padding-left: 30px;
+        margin-bottom: unset;
+        margin-top: 25px;
+    }
+    ${Responsive.laptop}{
+        margin-top: 40px;
+        padding-left: 200px;
+    }
+`
+export const ContentWrapper = styled.div`
+    display: flex;
+    height: 100vh;
+    ${Responsive.mobile}{
+        height: 100%;
+    }
+    ${Responsive.tablet}{
+        height: unset;
+    }
+    ${Responsive.laptop}{
+        height: unset;
+    }
+    ${Responsive.desktop}{
+        height: unset;
+    }
+    
+    ${Responsive.fullHD}{
+        height: 600px;
+    }
+`
+
+// Servise style
 
 // Column Body With White background color
 export const ColumnWhiteBody = styled.section`
@@ -165,6 +213,7 @@ export const Button = styled.button<{
     cursor: pointer;
 `
 // Contact & Send Button 
+
 
 
 

@@ -79,7 +79,6 @@ const Img = styled.img`
         width: 50%;
     }
 `
-
 const TextWrapper = styled.div`
     
 `

@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import api from '../api'
-import Burger from '../Components/Burger'
-import BurgerMenu from '../Components/BurgerMenu'
 import BtnForm from '../Components/Button'
 import ServiceWrap from '../Components/ServiceWrap'
 import Loader from '../Components/Loader';
@@ -10,7 +8,7 @@ import { useNavigate } from 'react-router-dom'
 import NotFound404 from '../Components/NotFound'
 import Colors from '../assets/colors'
 import Responsive from '../Responsive'
-import { ColumnWhiteBody } from '../GlobalStyle'
+import { ColumnWhiteBody, ContentWrapper, HeadWrapper } from '../GlobalStyle'
 
 const Services = () => {
     const { data: services, isFetching: isServicesLoading, refetch: refetchServices } = api.useGetServicesQuery(undefined);
@@ -61,30 +59,7 @@ const Services = () => {
 
 
 
-const HeadWrapper = styled.div`
-    margin-top: 80px    ;
-    padding-left: 222px;
-    font-family: "roboto";
-    font-size: 14px;
-    line-height: 16px;
-    font-style: normal;
-    color: ${Colors.Black};
-    margin-bottom: 30px;
-    ${Responsive.mobile}{
-        padding-left: 10px;
-        margin-bottom: 10px;
-        margin-top: 20px;
-    }
-    ${Responsive.tablet}{
-        padding-left: 30px;
-        margin-bottom: unset;
-        margin-top: 25px;
-    }
-    ${Responsive.laptop}{
-        margin-top: 40px;
-        padding-left: 200px;
-    }
-`
+
 const HeaderTitle = styled.h4`
     font-size: 16px;
     font-weight: bold;
@@ -104,27 +79,6 @@ const HeaderTitle = styled.h4`
 const HeaderText = styled.p`
     ${Responsive.mobile}{
         font-size: 10px;
-    }
-`
-
-const ContentWrapper = styled.div`
-    display: flex;
-    height: 100vh;
-    ${Responsive.mobile}{
-        height: 100%;
-    }
-    ${Responsive.tablet}{
-        height: unset;
-    }
-    ${Responsive.laptop}{
-        height: unset;
-    }
-    ${Responsive.desktop}{
-        height: unset;
-    }
-    
-    ${Responsive.fullHD}{
-        height: 600px;
     }
 `
 
